@@ -4,9 +4,9 @@
 
 <h2><%= l(:bugcloud) %></h2>
 <ul class="bugcloud">
-<% @issues.each do |issue| -%>
+<% @issues_freq.each do |issue, freq| -%>
   <% unless issue.closed? -%>
-  <li class="level<%= h issue.priority.position %>">
+  <li class="level<%= h issue.priority.position %>" style="font-size: <%= to_em(freq) %>">
   <%= link_to h("##{issue.id} #{issue.subject}"), :controller => 'issues', :action => 'show', :id => issue %>
   </li>
   <% end -%>
